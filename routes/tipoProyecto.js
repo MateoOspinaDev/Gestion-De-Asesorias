@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const {createTipoProyecto, /*getTipoEquipos, updateTipoEquipoByID*/} =
- require('../controllers/tipoEquipo')
+ require('../controllers/tipoProyecto')
 
 const router = Router()
 
