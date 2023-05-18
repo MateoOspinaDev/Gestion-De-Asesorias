@@ -1,11 +1,11 @@
 const { Router } = require('express')
-const { createInventario, getInventarios} =
+const { createTipoProyecto, getInventarios} =
  require('../controllers/inventario')
 
 const router = Router()
 
 // crear
-router.post('/', createInventario)
+router.post('/', createTipoProyecto)
 
 // consultar todos
 router.get('/', getInventarios)

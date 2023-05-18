@@ -28,18 +28,17 @@ const createTipoProyecto = async (req = request,
 }
 
 //listar todos
-/*const getTipoEquipos = async (req = request, 
+const getTipoProyecto = async (req = request, 
     res = response) => {
         try{
-            const { estado } = req.query
-            const tipoEquiposDB = await TipoEquipo.find({estado})//select * from tipoEquipo where estado=?
-            return res.json(tipoEquiposDB)
+            const tipoProyectoDB = await TipoProyecto.find()//select * from tipoEquipo where estado=?
+            return res.json(tipoProyectoDB)
         }catch(e){
             return res.status(500).json({
                 msg: 'Error general ' + e
             })
         }
-}*/
+}
 
 // actualizar por ID
 /*const updateTipoEquipoByID = async (req = request,
@@ -61,6 +60,6 @@ const createTipoProyecto = async (req = request,
 
 module.exports = { 
     createTipoProyecto, 
-   /* getTipoEquipos, 
-    updateTipoEquipoByID*/
+    getTipoProyecto
+    //updateTipoEquipoByID
 }
