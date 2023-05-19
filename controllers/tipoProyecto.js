@@ -8,7 +8,7 @@ const createTipoProyecto = async (req = request,
         const nombre = req.body.nombre 
             ? req.body.nombre.toUpperCase()
             : ''
-        const tipoProyectoDB = await TipoProyecto.findOne({nombre})//select * from tipoEquipo where nombre=?
+        const tipoProyectoDB = await TipoProyecto.findOne({nombre})
         
         if(tipoProyectoDB){
             return res.status(400).json({msg: 'Ya existe'})
@@ -31,7 +31,7 @@ const createTipoProyecto = async (req = request,
 const getTipoProyecto = async (req = request, 
     res = response) => {
         try{
-            const tipoProyectoDB = await TipoProyecto.find()//select * from tipoEquipo where estado=?
+            const tipoProyectoDB = await TipoProyecto.find()
             return res.json(tipoProyectoDB)
         }catch(e){
             return res.status(500).json({
@@ -40,26 +40,22 @@ const getTipoProyecto = async (req = request,
         }
 }
 
-// actualizar por ID
-/*const updateTipoEquipoByID = async (req = request,
+const updateTipoProyectoByID = async (req = request,
     res = response) => {
     try{
-        console.log(req.body)
-        console.log(req.params)
         const data = req.body
         const id = req.params.id
         data.fechaActualizacion = new Date()
-        console.log(data)
-        const tipoEquipo = await TipoEquipo.findByIdAndUpdate(id, data, {new: true})
-        return res.json(tipoEquipo)
+        const tipoProyecto = await TipoEquipo.findByIdAndUpdate(id, data, {new: true})
+        return res.json(tipoProyecto)
     }catch(e){
         console.log(e)
         return res.status(500).json({msg: e})  
     }
-}*/
+}
 
 module.exports = { 
     createTipoProyecto, 
-    getTipoProyecto
-    //updateTipoEquipoByID
+    getTipoProyecto,
+    updateTipoProyectoByID
 }
